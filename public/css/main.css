@@ -1,0 +1,33 @@
+body {
+    margin: 0px;
+    background-color: #F2F2F2;
+    font-family: sans-serif;
+}
+
+input, button, submit { border: none; }
+
+nav {
+    background: url(/images/header.svg) no-repeat center;
+    background-size: cover;
+    min-height: 80px;
+}
+
+nav > img {
+    height: 50px;
+    padding: 10px;
+}
+
+.btn {
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+}
+
+.btn-header {
+    background-color: #61CE70;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+}

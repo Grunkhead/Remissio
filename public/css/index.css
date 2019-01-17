@@ -1,0 +1,96 @@
+input {
+    padding: 10px;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+
+    webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+div > i {
+    font-size: 20px;
+    color: #4898D7;
+    position: absolute;
+    right: 20px;
+    top: 90px;
+}
+
+.items {
+    padding: 10px 10px 0px 10px
+}
+
+.items > span {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.items > div {
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    -webkit-box-shadow: 0px 11px 12px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 11px 12px -12px rgba(0,0,0,0.75);
+    box-shadow: 0px 11px 12px -12px rgba(0,0,0,0.75);
+}
+
+.items > div > div:nth-child(1) {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.items > div > div:nth-child(2) {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.btn-destroy {
+    background-color: #EF5F5F;
+    position: absolute;
+    right: 70px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.btn-edit {
+    background-color: #61CE70;
+    position: absolute;
+    right: 20px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.btn-search {
+    background-color: #4898D7;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    right: 10px;
+    top: 85px;
+    font-size: 16px;
+}
+
+.btn-destroy:before {
+    content: "\f014";
+    font-family: FontAwesome;
+}
+
+.btn-edit:before {
+    content: "\f044";
+    font-family: FontAwesome;
+}
+
+.btn-search:before {
+    content: "\f002";
+    font-family: FontAwesome;
+}
