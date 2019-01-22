@@ -56,19 +56,28 @@ class AppointmentController extends Controller
 
     public function edit($id)
     {
+        $event = Event::find($id);
+        $event->start->dateTime = $this->formatDateTime(
+                $this->typecastToCarbon($event->start->dateTime));
+
         return view('appointments/edit', [
-            'event' => Event::find($id)
+            'event' => $event
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        // dd($request);
         $event = Event::find($id);
-        $event->name = $request->name;
-        $event->description = $request->description;
-        // TODO write all form properties.
-        $event->save();
+
+        $carbonDateTime = $this->typecastToCarbon($request->start_datetime);
+        $carbonDateTime = $carbonDateTime->subHours(2);
+
+        $event->update([
+            'name'          => $request->name,
+            'description'   => $request->description,
+            'startDateTime' => $carbonDateTime,
+            'endDateTime'   => $carbonDateTime->addHour(),
+        ]);
 
         return redirect()->action('AppointmentController@index');
     }
@@ -80,11 +89,11 @@ class AppointmentController extends Controller
     }
 
 
-    private function typecastToCarbon($date) {
-        return Carbon::parse($date);
+    static function typecastToCarbon($time) {
+        return Carbon::parse($time);
     }
 
-    private function formatDateTime ($dateTime) {
-        return $dateTime->format('d F Y - H:i');
+    static function formatDateTime ($dateTime) {
+        return $dateTime->format('d-m-Y H:i');
     }
 }
