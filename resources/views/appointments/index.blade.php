@@ -14,13 +14,14 @@
     <nav>
         <img src="/images/logo.png">
         <a href="{{ route('appointment.new') }}">
-        <button class="btn btn-header">Afpsraak maken</button></a>
+        <button class="btn btn-header">Afspraak maken</button></a>
     </nav>
-
-    <div>
-        <input type="text" placeholder="Vul de titel van de afspraak in die je zoekt">
-        <button class="btn btn-search"></button>
-    </div>
+    
+    {{ Form::open(array('method' => 'GET', 'route' => 'appointment.search')) }}
+        @csrf
+        <input name="criteria" type="text" placeholder="Vul de titel van de afspraak in die je zoekt">
+        <button type="submit" class="btn btn-search"></button>
+    {{ Form::close() }}
 
     <div class="items">
 
@@ -33,8 +34,8 @@
             <div>
                 {{ $event->start->dateTime }}
             </div>
-            <a href="{{ route('appointment.destroy', ['id' => $event->id]) }}"><button class="btn btn-destroy"></button></a>
-            <a href="{{ route('appointment.edit', ['id' => $event->id]) }}"><button class="btn btn-edit"></button></a>
+            <a class="btn btn-destroy" href="{{ route('appointment.destroy', ['id' => $event->id]) }}"></a>
+            <a class="btn btn-edit" href="{{ route('appointment.edit', ['id' => $event->id]) }}"></a>
         </div>
         @empty
         <div>
@@ -44,6 +45,27 @@
         </div>
         @endforelse
     </div>
+
+    <script>
+
+        Array.from(document.getElementsByClassName('btn-destroy')).forEach(function(element) {
+        element.addEventListener('click', function(event) {
+
+            eventName = event.target.previousElementSibling
+                                    .previousElementSibling.innerHTML;
+
+            console.log(eventName);
+
+            if (confirm("De volgende afspraak wordt verwijderd als je doorgaat: " + eventName)) {
+                // Send the request
+            } else {
+                // Stop the request from sending
+                event.preventDefault()
+            }
+        })
+    })
+
+    </script>
 
 </body>
 </html>

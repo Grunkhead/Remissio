@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/form.css">
 
+    <!-- Datetime picker -->
+    <link rel="stylesheet" type="text/css" href="/datetimepicker/jquery.datetimepicker.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/datetimepicker/build/jquery.datetimepicker.full.js"></script>
+
     <title>Remissio</title>
 </head>
 <body>
@@ -16,14 +21,13 @@
         <a href="{{ route('appointment.index') }}">
         <button class="btn btn-header">Terug naar overzicht</button></a>
     </nav>
-
-    <form class="form" method="POST" action="{{ route('appointment.update', ['id' => $event->id]) }}">
+    <form class="form" method="POST" value="{{ $event->start->dateTime }}" action="{{ route('appointment.update', ['id' => $event->id]) }}">
         <span>Nieuwe afspraak maken:</span>
         <div>
             @csrf
-            <input name="start_datetime" type="datetime-local" placeholder="Kies een datum">
-            <input name="name" type="text" placeholder="Vul de naam van de afspraak in">
-            <textarea name="description" placeholder="Vul hier notities in (niet verplicht)"></textarea>
+            <input id="datetimepicker" name="start_datetime" type="text" value="{{ $event->start->dateTime }}" placeholder="Kies een datum en tijd">
+            <input name="name" type="text" value="{{ $event->name }}" placeholder="Vul de naam van de afspraak in">
+            <textarea name="description">{{ $event->description }}</textarea>
 
             <input type="radio" name="type_of_appointment" value="0">
             <label>Kennismakingsgesprek</label><br>
@@ -36,6 +40,13 @@
             </div>
         </div>
     </form>
+
+    <script>
+        $('#datetimepicker').datetimepicker({
+            format: 'd-m-Y H:i',
+            step: 15,
+        });
+    </script>
 
 </body>
 </html>

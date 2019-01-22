@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/form.css">
 
+    <!-- Datetime picker -->
+    <link rel="stylesheet" type="text/css" href="/datetimepicker/jquery.datetimepicker.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/datetimepicker/build/jquery.datetimepicker.full.js"></script>
+
     <title>Remissio</title>
 </head>
 <body>
@@ -21,7 +26,7 @@
         @csrf
         <span>Nieuwe afspraak maken:</span>
         <div>
-            <input name="start_datetime" type="datetime-local" placeholder="Kies een datum">
+            <input id="datetimepicker" name="start_datetime" type="text" placeholder="Kies een datum">
             <input name="name" type="text" placeholder="Vul de naam van de afspraak in">
             <textarea name="description" placeholder="Vul hier notities in (niet verplicht)"></textarea>
 
@@ -36,6 +41,13 @@
             </div>
         </div>
     </form>
+
+    <script>
+        $('#datetimepicker').datetimepicker({
+            format: 'd-m-Y H:i',
+            step: 15,
+        });
+    </script>
 
 </body>
 </html>
