@@ -21,9 +21,7 @@ Route::get('/afspraken/{id}/wijzigen', 'AppointmentController@edit')->name('appo
 Route::post('/appointment/{id}/update', 'AppointmentController@update')->name('appointment.update');
 Route::get('/appointment/{id}/destroy', 'AppointmentController@destroy')->name('appointment.destroy');
 
-Route::post('/appointment/search', function () {
-    // TODO
-})->name('appointment.search');
+Route::get('/appointment/search', 'SearchController@search')->name('appointment.search');
 
 Route::get('/testdingen', function () {
     // dd(Event::get());
