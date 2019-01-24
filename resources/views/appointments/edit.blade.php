@@ -25,7 +25,7 @@
         <span>Nieuwe afspraak maken:</span>
         <div>
             @csrf
-            <input id="datetimepicker" name="start_datetime" type="text" value="{{ $event->start->dateTime }}" placeholder="Kies een datum en tijd">
+            <input readonly="true" id="datetimepicker" name="start_datetime" type="text" value="{{ $event->start->dateTime }}" placeholder="Kies een datum en tijd">
             <input name="name" type="text" value="{{ $event->name }}" placeholder="Vul de naam van de afspraak in">
             <textarea name="description">{{ $event->description }}</textarea>
 

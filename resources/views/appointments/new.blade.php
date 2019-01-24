@@ -26,7 +26,7 @@
         @csrf
         <span>Nieuwe afspraak maken:</span>
         <div>
-            <input id="datetimepicker" name="start_datetime" type="text" placeholder="Kies een datum">
+            <input readonly="true" id="datetimepicker" name="start_datetime" type="text" placeholder="Kies een datum">
             <input name="name" type="text" placeholder="Vul de naam van de afspraak in">
             <textarea name="description" placeholder="Vul hier notities in (niet verplicht)"></textarea>
 
