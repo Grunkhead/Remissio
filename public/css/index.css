@@ -98,3 +98,9 @@ div > i {
     content: "\f002";
     font-family: FontAwesome;
 }
+
+@media only screen and (max-width: 320px) {
+  form > input {
+    font-size: 13px;
+  }
+}
