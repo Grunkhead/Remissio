@@ -32,3 +32,9 @@ nav > img {
     top: 30px;
     right: 10px;
 }
+
+@media only screen and (max-width: 320px) {
+  .btn-header {
+    font-size: 13px;
+  }
+}

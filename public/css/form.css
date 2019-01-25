@@ -60,3 +60,9 @@
     margin-top: 30px;
     padding: 10px;
 }
+
+@media only screen and (max-width: 320px) {
+  .btn-back, .btn-submit {
+    font-size: 13px;
+  }
+}
