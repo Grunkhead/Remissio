@@ -94,6 +94,6 @@ class AppointmentController extends Controller
     }
 
     static function formatDateTime ($dateTime) {
-        return $dateTime->format('d-m-Y H:i');
+        return $dateTime->format('d F Y - H:i');
     }
 }
