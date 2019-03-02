@@ -14,6 +14,21 @@
     <nav>
         <img src="/images/logo.png">
         <a href="{{ route('appointment.new') }}">
+
+        @auth
+        <div>
+            <button class="btn btn-logout" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                {{ __('Uitloggen') }}
+            </button>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
+        @endauth
+
         <button class="btn btn-header">Afspraak maken</button></a>
     </nav>
     
