@@ -23,13 +23,4 @@ Route::get('/appointment/{id}/destroy', 'AppointmentController@destroy')->name('
 
 Route::get('/appointment/search', 'SearchController@search')->name('appointment.search');
 
-Route::get('/testdingen', function () {
-    // dd(Event::get());
-
-    $event = Event::find('mosq9luad8gdusn7vo6uf2cp8o');
-
-    $event->name = 'My updated title';
-    $event->save();
-});
-
 Auth::routes();
