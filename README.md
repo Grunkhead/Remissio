@@ -11,4 +11,4 @@ Please look at the documentation how to get this file.
 https://github.com/spatie/laravel-permission
 
 After you have connected with your agenda you need to create a account.
-This can be done using code, creating a new User object and save it.
+This can be done by writing some basic PHP code. You need to create a 'User' object and save it to the database.
